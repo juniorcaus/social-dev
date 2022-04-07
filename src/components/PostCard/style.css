@@ -1,0 +1,23 @@
+.caption{
+    margin-right: 4px;
+}
+
+.message{
+    height: auto;
+    margin-bottom: 4px;
+    padding: 0 24px;
+}
+
+.image{
+    height: 300px;
+    width: 100%;
+    max-width: 100%;
+}
+
+.content{
+padding: 0;
+}
+
+.favorite{
+    margin-left: auto;
+}
