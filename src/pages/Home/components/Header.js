@@ -1,6 +1,6 @@
 import React from "react";
 
-//import '../style.css';
+import '../style.css';
 
 import Button from '@mui/material/Button';
 import { makeStyles } from '@material-ui/styles';
@@ -11,14 +11,13 @@ import Toolbar from '@mui/material/Toolbar';
 import SvgIcon from '@mui/material/SvgIcon';
 import logo from '../../../img/logo.png';
 import { Bell } from "react-feather";
+import Avatar from '@mui/material/Avatar';
 
 
 
 const useStyles = makeStyles({
-    appBar: {
-        boxShadow: 'none',
-    },      
-    
+    //appBar:{},  // btn: {}, estilizado no arquivo style.css
+      
     img: {
         maxHeight: 55,
     },
@@ -29,9 +28,10 @@ const useStyles = makeStyles({
         display: 'flex',
         alignItems: 'center',
     },
-    button: {
-        marginRight: '30px'
-    },
+    bell: {
+        marginRight: 10,
+    }
+  
 
 
 });
@@ -40,18 +40,19 @@ function Header() {
     const classes = useStyles();
 
     return (
-        <AppBar position="fixed" color="inherit" className={classes.appBar}>
+        <AppBar position="fixed" color="inherit" className="appBar">
                 <Toolbar>
                     <img src={logo} alt="logo" className={classes.img} />
                     <div className={classes.grow}></div>
                     
                     <div className={classes.userSection}>
-                    <Button className={classes.button} variant="contained" > 
+                    <Button variant="contained"  className="btn" > 
                         Novo Post 
                     </Button> 
-                    <SvgIcon>
+                    <SvgIcon className={classes.bell}>
                         <Bell></Bell>
                     </SvgIcon>
+                    <Avatar alt="Remy Sharp" src="/" />
 
                     </div>
         
