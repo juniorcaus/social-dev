@@ -34,7 +34,7 @@ const posts = [
             username: 'juniorcaus',
             avatar: './src/img/avatars/rick.png',
         },
-        title: "comparativo entre React.js e Vue.js - performace",
+        title: "Comparativo entre React.js e Vue.js - performace",
         date: "April 1, 2022",
         description: 'quero criar um bootcamp gratuito',
         hashtags: "#framework, #javascript, #reactjs, #vue",

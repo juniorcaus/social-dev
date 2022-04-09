@@ -1,5 +1,6 @@
 import React from "react";
 import { makeStyles } from '@material-ui/styles';
+
 import  './style.css';
 
 import Card from '@mui/material/Card';
@@ -14,6 +15,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
 import MessageIcon from '@mui/icons-material/Message';
 import IconButton from '@mui/material/IconButton';
+
 
 
 const useStyles = makeStyles({
@@ -68,20 +70,20 @@ function PostCard({ post }) {
             <CardActions disableSpacing>
                     <IconButton aria-label="like" >
                         <FavoriteIcon />
-                        <Typography style={{ cursor: 'pointer' }} color='secondary.main' variant="body2">
+                        <Typography style={{ cursor: 'pointer' }} color='#d50000' variant="body2"  >
                             {'10'}
                         </Typography>
                     </IconButton>     
 
                     <IconButton aria-label="comment" >
                         <MessageIcon />
-                        <Typography className="reactions" color='secondary.main' variant="body2">
+                        <Typography className="reactions" color='#' variant="body2">
                             {'30'}
                         </Typography>
                     </IconButton>     
 
-                    <IconButton aria-label="favorite" className="favorite" >
-                        <BookmarkIcon />
+                    <IconButton aria-label="favorite" >
+                        <BookmarkIcon className="favorite" />
                     </IconButton>     
             </CardActions>
 

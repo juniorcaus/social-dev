@@ -1,5 +1,5 @@
 .caption{
-    margin-right: 4px;
+    margin: 8px;
 }
 
 .message{
@@ -18,6 +18,11 @@
 padding: 0;
 }
 
-.favorite{
-    margin-left: auto;
+.favorite {
+    margin-left: 300px;
+    /* ARGIN LEFT AUTO NO ICONBUTTON  NÃO FUNCIONOU ENTÃO FOI COLOCADO NO BOOKMARKICON */
+}
+
+.typography{
+    font-size: 14px;
 }

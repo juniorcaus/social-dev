@@ -30,6 +30,7 @@ const useStyles = makeStyles({
     },
     bell: {
         marginRight: 10,
+        marginLeft: 15,
     }
   
 
