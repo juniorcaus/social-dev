@@ -11,6 +11,8 @@ import Typography  from "@mui/material/Typography";
 import  Button from "@mui/material/Button";
 import TextField  from "@mui/material/TextField";
 import  Link  from "@mui/material/Link";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 // import typography from "../../theme/typography";
 
@@ -36,6 +38,23 @@ function Copyright () {
 
 function SignIn() {
     const classes = useStyles();
+    const navigate = useNavigate();
+
+    function handleSignIn() {
+        //chamada a API
+        // se retorno ok, direciona para home
+        // se não exibe msg para o usuario
+
+        //obj promise/promesa
+        axios.get('https://api.github.com/users/juniorcaus')
+        .then(response => {
+            console.log(response.data)
+        })
+        .catch(error => {
+            console.log('Your seach result in error 404')
+        })
+
+    }
 
     return(
         <Grid container className={classes.root}>
@@ -60,16 +79,16 @@ function SignIn() {
                           
                          <TextField variant="outlined" margin="normal" required fullWidth name="password" label="Senha" type="password" id="password" autoComplete="current-password" />
 
-                         <Button fullWidth variant="contained" color="primary" className="btn-acessar">
-                            Acessar
+                         <Button fullWidth variant="contained" color="primary" className="btn-acessar" onClick={handleSignIn}>
+                            Entrar
                          </Button>
 
                         <Grid container >
-                            <Grid item>
+                            <Grid item >
                                 <Link>Esqueceu sua senha? </Link>
                             </Grid>
-                                <br/>
-                            <Grid item>
+                                
+                            <Grid item >
                                 <Link>Não tem uma conta? Registre-se</Link>
                             </Grid>
 
