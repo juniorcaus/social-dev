@@ -20,13 +20,7 @@ function App() {
         </Routes>
       
       </BrowserRouter>
-     {/*  {
-      url ===  'http://localhost:3000/'
-      ? <Home />
-
-      : <SignIn />
-      } */}
-
+    
        
     </ThemeProvider>
   );
