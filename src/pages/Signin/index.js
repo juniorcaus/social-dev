@@ -12,7 +12,7 @@ import  Button from "@mui/material/Button";
 import TextField  from "@mui/material/TextField";
 import  Link  from "@mui/material/Link";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import axios from "../../utils/axios";
 
 // import typography from "../../theme/typography";
 
@@ -40,21 +40,26 @@ function SignIn() {
     const classes = useStyles();
     const navigate = useNavigate();
 
-    function handleSignIn() {
-        //chamada a API
+        //EXISTE DUAS MANEIRAS DE REALIZAR ESSA FUNCTION 
+        // 1º DELAS ↓
+    /* function handleSignIn() {
+        //chamada a API da nossa aplicação 
         // se retorno ok, direciona para home
         // se não exibe msg para o usuario
+        axios.post('/api/home/login').then(response => console.log(response))
 
-        //obj promise/promesa
-        axios.get('https://api.github.com/users/juniorcaus')
-        .then(response => {
-            console.log(response.data)
-        })
-        .catch(error => {
-            console.log('Your seach result in error 404')
-        })
+    } */
+    // SEGUNDA MANEIRA ↓
+   async function handleSignIn() {
+        //chamada a API da nossa aplicação 
+        // se retorno ok, direciona para home
+        // se não exibe msg para o usuario
+        const response = await axios.post('/api/home/login')
+       console.log(response);
 
     }
+
+    
 
     return(
         <Grid container className={classes.root}>
