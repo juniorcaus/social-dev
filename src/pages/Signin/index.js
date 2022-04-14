@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import './style.css';
 
 import { makeStyles } from '@material-ui/styles';
@@ -12,9 +12,10 @@ import  Button from "@mui/material/Button";
 import TextField  from "@mui/material/TextField";
 import  Link  from "@mui/material/Link";
 import { useNavigate } from "react-router-dom";
-import axios from "../../utils/axios";
 
-// import typography from "../../theme/typography";
+import authService  from "../../services/authService";
+import { FormHelperText } from "@mui/material";
+
 
 const useStyles = makeStyles({
     root: {
@@ -39,6 +40,9 @@ function Copyright () {
 function SignIn() {
     const classes = useStyles();
     const navigate = useNavigate();
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [errorMessage, setErrorMessage] = useState();
 
         //EXISTE DUAS MANEIRAS DE REALIZAR ESSA FUNCTION 
         // 1º DELAS ↓
@@ -54,9 +58,15 @@ function SignIn() {
         //chamada a API da nossa aplicação 
         // se retorno ok, direciona para home
         // se não exibe msg para o usuario
-        const response = await axios.post('/api/home/login')
-       console.log(response);
-
+        
+        try {
+        await authService.signIn(email, password);
+            //200
+            navigate('/');
+        } catch (error) {
+            setErrorMessage(error.response.data.message);
+            
+        }
     }
 
     
@@ -80,13 +90,20 @@ function SignIn() {
                      </Typography>
 
                      <form className="form">
-                         <TextField variant="outlined" margin="normal" required fullWidth id="email" label="E-mail" name="email" autoComplete="email" autoFocus />
+                         <TextField variant="outlined" margin="normal" required fullWidth id="email" label="E-mail" name="email" autoComplete="email" autoFocus value={email} onChange={(event) => setEmail(event.target.value)} />
                           
-                         <TextField variant="outlined" margin="normal" required fullWidth name="password" label="Senha" type="password" id="password" autoComplete="current-password" />
+                         <TextField variant="outlined" margin="normal" required fullWidth name="password" label="Senha" type="password" id="password" autoComplete="current-password" value={password} onChange={(event) => setPassword(event.target.value) } />
 
                          <Button fullWidth variant="contained" color="primary" className="btn-acessar" onClick={handleSignIn}>
                             Entrar
                          </Button>
+
+                        {
+                            errorMessage &&
+                            <FormHelperText error>
+                                  {errorMessage}  
+                            </FormHelperText>
+                        }
 
                         <Grid container >
                             <Grid item >
