@@ -13,6 +13,7 @@ import logo from '../../../img/logo.png';
 import { Bell } from "react-feather";
 import Avatar from '@mui/material/Avatar';
 
+import authService from "../../../services/authService";
 
 
 const useStyles = makeStyles({
@@ -39,6 +40,8 @@ const useStyles = makeStyles({
 
 function Header() {
     const classes = useStyles();
+    const user = authService.getUser();
+   
 
     return (
         <AppBar position="fixed" color="inherit" className="appBar">
@@ -53,7 +56,7 @@ function Header() {
                     <SvgIcon className={classes.bell}>
                         <Bell></Bell>
                     </SvgIcon>
-                    <Avatar alt="Remy Sharp" src="/" />
+                    <Avatar alt="Remy Sharp" src={user && user.avatar } />
 
                     </div>
         
