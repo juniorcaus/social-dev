@@ -66,17 +66,11 @@ function SignIn() {
         
         try {
            await dispatch(signIn(email, password));
-        //await authService.signIn(email, password);
-            //200
-           // navigate('/');
+             navigate('/');
         } catch (error) {
-            console.log(error)
-          //  setErrorMessage(error.response.data.message);
-            
+          setErrorMessage(error.response.data.message);
         }
     }
-
-    console.log(account);
 
     return(
         <Grid container className={classes.root}>

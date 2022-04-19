@@ -12,6 +12,7 @@ import SvgIcon from '@mui/material/SvgIcon';
 import logo from '../../../img/logo.png';
 import { Bell } from "react-feather";
 import Avatar from '@mui/material/Avatar';
+import { useSelector } from "react-redux";
 
 
 
@@ -40,7 +41,8 @@ const useStyles = makeStyles({
 
 function Header() {
     const classes = useStyles();
-    const user = null;
+    const user = useSelector(state => state.user);
+    
    
 
     return (
