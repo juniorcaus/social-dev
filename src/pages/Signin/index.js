@@ -12,9 +12,10 @@ import  Button from "@mui/material/Button";
 import TextField  from "@mui/material/TextField";
 import  Link  from "@mui/material/Link";
 import { useNavigate } from "react-router-dom";
-
-import authService  from "../../services/authService";
 import { FormHelperText } from "@mui/material";
+import {useSelector, useDispatch } from 'react-redux';
+import  signIn  from '../../actions/accountActions';
+
 
 
 const useStyles = makeStyles({
@@ -43,6 +44,10 @@ function SignIn() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState();
+    const dispatch = useDispatch();
+
+    const account = useSelector(state => state);
+    
 
         //EXISTE DUAS MANEIRAS DE REALIZAR ESSA FUNCTION 
         // 1º DELAS ↓
@@ -60,16 +65,18 @@ function SignIn() {
         // se não exibe msg para o usuario
         
         try {
-        await authService.signIn(email, password);
+           await dispatch(signIn(email, password));
+        //await authService.signIn(email, password);
             //200
-            navigate('/');
+           // navigate('/');
         } catch (error) {
-            setErrorMessage(error.response.data.message);
+            console.log(error)
+          //  setErrorMessage(error.response.data.message);
             
         }
     }
 
-    
+    console.log(account);
 
     return(
         <Grid container className={classes.root}>

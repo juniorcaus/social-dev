@@ -13,7 +13,7 @@ import logo from '../../../img/logo.png';
 import { Bell } from "react-feather";
 import Avatar from '@mui/material/Avatar';
 
-import authService from "../../../services/authService";
+
 
 
 const useStyles = makeStyles({
@@ -40,7 +40,7 @@ const useStyles = makeStyles({
 
 function Header() {
     const classes = useStyles();
-    const user = authService.getUser();
+    const user = null;
    
 
     return (
