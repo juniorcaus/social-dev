@@ -8,7 +8,7 @@ class AuthService {
             axios.post('/api/home/login', {email, password})
             .then(response => {
                 if (response.data.user) {
-                    //this.setUser(response.data.user)
+                    this.setToken('JWT')
                     resolve(response.data.user)
                 } else {
                     reject(response.data.error)
@@ -20,17 +20,17 @@ class AuthService {
         })
     }
 
-    setUser = (user) => {
-        localStorage.setItem("user", JSON.stringify(user));
+    setToken = (token) => {
+        localStorage.setItem("accessToken", token);
     }
-    getUser = () => {
+    getToken = () => {
         const user = localStorage.getItem("user");
         if (user) {
             return JSON.parse(user)
         }
         return user;
     }
-    isAuthenticated = () => !!this.getUser();
+    isAuthenticated = () => !!this.getToken();
     
 }
 

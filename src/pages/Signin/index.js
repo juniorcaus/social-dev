@@ -13,7 +13,7 @@ import TextField  from "@mui/material/TextField";
 import  Link  from "@mui/material/Link";
 import { useNavigate } from "react-router-dom";
 import { FormHelperText } from "@mui/material";
-import {useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import  signIn  from '../../actions/accountActions';
 
 
@@ -45,11 +45,8 @@ function SignIn() {
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState();
     const dispatch = useDispatch();
-
-    const account = useSelector(state => state);
     
-
-        //EXISTE DUAS MANEIRAS DE REALIZAR ESSA FUNCTION 
+      //EXISTE DUAS MANEIRAS DE REALIZAR ESSA FUNCTION 
         // 1º DELAS ↓
     /* function handleSignIn() {
         //chamada a API da nossa aplicação 
