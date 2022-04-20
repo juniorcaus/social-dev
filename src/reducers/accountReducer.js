@@ -1,4 +1,4 @@
-import { LOGIN_SUCCESS } from "../actions/accountActions";
+import { LOGIN_SUCCESS, SILENT_LOGIN, SIGNOUT } from "../actions/accountActions";
 
     const INITIAL_STATE = {
     user: null
@@ -12,6 +12,20 @@ const accountReducer = (state = INITIAL_STATE, action) => {
                 user: action.payload.user
             }
         }
+        case SILENT_LOGIN: {
+            return {
+                ...state,
+                user: action.payload.user
+            }
+        }
+
+        case SIGNOUT: {
+            return {
+                ...state,
+                user: null,
+            }
+        }
+        
         default: {
             return state;
         }

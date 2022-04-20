@@ -1,6 +1,7 @@
 import React from "react";
 
-import '../style.css';
+//import '../style.css';
+import '../../style.css';
 
 import Button from '@mui/material/Button';
 import { makeStyles } from '@material-ui/styles';
@@ -9,11 +10,12 @@ import { makeStyles } from '@material-ui/styles';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import SvgIcon from '@mui/material/SvgIcon';
-import logo from '../../../img/logo.png';
+import logo from '../../../../img/logo.png';
+//import logo from '../../../img/logo.png';
 import { Bell } from "react-feather";
-import Avatar from '@mui/material/Avatar';
-import { useSelector } from "react-redux";
 
+
+import Account from "./Account";
 
 
 
@@ -41,23 +43,23 @@ const useStyles = makeStyles({
 
 function Header() {
     const classes = useStyles();
-    const account = useSelector(state => state.account);
+  
    
     
     return (
         <AppBar position="fixed" color="inherit" className="appBar">
                 <Toolbar>
                     <img src={logo} alt="logo" className={classes.img} />
-                    <div className={classes.grow}></div>
+                    <div className={classes.grow} />
                     
                     <div className={classes.userSection}>
                     <Button variant="contained"  className="btn" > 
                         Novo Post 
                     </Button> 
                     <SvgIcon className={classes.bell}>
-                        <Bell></Bell>
+                        <Bell/>
                     </SvgIcon>
-                    <Avatar alt="Remy Sharp" src={account.user && account.user.avatar } />
+                    <Account />
 
                     </div>
         
