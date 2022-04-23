@@ -3,19 +3,19 @@ import React from "react";
 //import '../style.css';
 import '../../style.css';
 
-import Button from '@mui/material/Button';
 import { makeStyles } from '@material-ui/styles';
 
-
+import Notifications from "./Notifications";
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import SvgIcon from '@mui/material/SvgIcon';
 import logo from '../../../../img/logo.png';
 //import logo from '../../../img/logo.png';
-import { Bell } from "react-feather";
+
 
 
 import Account from "./Account";
+import { Box } from "@mui/material";
+import WritePost from "./WritePost";
 
 
 
@@ -32,12 +32,6 @@ const useStyles = makeStyles({
         display: 'flex',
         alignItems: 'center',
     },
-    bell: {
-        marginRight: 10,
-        marginLeft: 15,
-    }
-  
-
 
 });
 
@@ -53,13 +47,17 @@ function Header() {
                     <div className={classes.grow} />
                     
                     <div className={classes.userSection}>
-                    <Button variant="contained"  className="btn" > 
-                        Novo Post 
-                    </Button> 
-                    <SvgIcon className={classes.bell}>
-                        <Bell/>
-                    </SvgIcon>
+
+                    <WritePost />
+
+                    <Box marginLeft={2}>
+                    <Notifications />
+                    </Box>
+
+                    <Box marginLeft={2} >
                     <Account />
+                    </Box>
+
 
                     </div>
         
