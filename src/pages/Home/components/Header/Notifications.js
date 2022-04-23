@@ -13,7 +13,8 @@ import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
-import  { makeStyles }  from "@mui/material/";
+import './header.css';
+//import  { makeStyles }  from "@mui/material/";
 
 import { 
     Bell as BellIcon,
@@ -31,12 +32,12 @@ const iconsMap = {
     connection: ConnectionIcon,
 };
 
-const useStyles = makeStyles((theme) =>  ({
+/* const useStyles = makeStyles((theme) =>  ({    FOI USADO O CSS NORMAL
     icon: {
         background: theme.palette.secondary.main,
         color: theme.palette.secondary.constrastText
     }
-}));
+})); */
 
 function Notifications() {
 const account = useSelector((state) => state.account);
@@ -46,7 +47,7 @@ const ref = useRef(null);
 const [isOpen, setOpen] = useState(false);
 const dispatch = useDispatch();
 
-const classes = useStyles();
+// const classes = useStyles();
 
 const handleOpen = () => {
     setOpen(true);
@@ -96,10 +97,10 @@ useEffect(() => {
                  notifications.map((notification) => {
                     const Icon = iconsMap[notification.type];
                      return ( 
-                        <ListItem>
-                        <ListItemAvatar>
-                            <Avatar className={classes.icon}>
-                                <SvgIcon>
+                        <ListItem >
+                        <ListItemAvatar >
+                            <Avatar >
+                                <SvgIcon  className="icon-notification">
                                     <Icon />
                                 </SvgIcon>
                             </Avatar>

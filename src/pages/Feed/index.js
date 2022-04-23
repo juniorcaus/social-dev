@@ -1,7 +1,10 @@
 import React from "react";
 import { makeStyles } from '@material-ui/styles';
+import { Container } from "@mui/material";
+import { Box } from "react-feather";
 
-import PostCard from "../../../components/PostCard";
+import PostCard from "../../components/PostCard";
+import NavBar from "./NavBar";
 
 
 
@@ -47,6 +50,11 @@ function Feed () {
     const classes = useStyles();
 
     return(
+
+        <Container maxWidth="lg" >
+        <Box display="flex" >
+        <NavBar />
+
         <div className={classes.root}>
             {
                 posts.map(post => (
@@ -55,6 +63,11 @@ function Feed () {
             }
            
         </div>
+
+        </Box>
+        </Container>  
+
+        
     );
 }
 

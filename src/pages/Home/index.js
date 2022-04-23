@@ -3,8 +3,6 @@ import Header from "./components/Header";
 
 //import './style.css';
 
-import Feed from "./components/Feed";
-import NavBar from "./components/NavBar";
 import  Container  from "@mui/material/Container";
 import Box from '@mui/material/Box';
 
@@ -34,12 +32,7 @@ function Home() {
             <Header /> 
             <div className={classes.toolbar}></div>
             <main className={classes.main}>
-                <Container maxWidth="lg" >
-                    <Box display="flex" >
-                    <NavBar />
-                    <Feed />
-                    </Box>
-                </Container>  
+               
             </main> 
             
         </div>
