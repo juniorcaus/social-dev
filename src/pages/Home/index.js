@@ -1,12 +1,16 @@
 import React from "react";
+import { makeStyles } from '@material-ui/styles';
+import { Route, Routes } from "react-router-dom";
+
+
 import Header from "./components/Header";
 
-//import './style.css';
 
-import  Container  from "@mui/material/Container";
-import Box from '@mui/material/Box';
+import './style.css';
+import NewPost from "../../pages/Post/New";
+import Feed from "../../pages/Feed";
 
-import { makeStyles } from '@material-ui/styles';
+
 
 
 const useStyles = makeStyles({
@@ -22,7 +26,7 @@ const useStyles = makeStyles({
         minHeight: 64,
     }
     
-})
+});
 
 function Home() {
     const classes = useStyles();
@@ -30,12 +34,17 @@ function Home() {
     return (
         <div className={classes.root}>
             <Header /> 
-            <div className={classes.toolbar}></div>
+            <div className={classes.toolbar} />
             <main className={classes.main}>
-               
+                <Routes>
+                    <Route path="/" element={<Feed />} />
+                    <Route path="/feed" element={<Feed /> } />
+                    <Route path="*" element={ <h1>Not Found - 404</h1> } />
+                    <Route path="/post/new" element={<NewPost />} />
+                </Routes>
             </main> 
             
-        </div>
+        </div>  
     );
 }
 
